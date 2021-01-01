@@ -8,7 +8,9 @@ import {
   Survey,
   Slider,
   GridProjects,
+  Services,
 } from "../components"
+// import Services from "../components"
 import SEO from "../components/seo"
 const HomePage = ({ data }) => {
   const {
@@ -22,6 +24,7 @@ const HomePage = ({ data }) => {
       <GridProjects projects={projects} title="Good Food By Uzma" />
       {/* <Survey /> */}
       <Slider />
+      <Services/>
     </Layout>
   )
 }

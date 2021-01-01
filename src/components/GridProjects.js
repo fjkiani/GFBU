@@ -87,7 +87,7 @@ const Wrapper = styled.section`
   @media (min-width: 992px) {
     .tile-layout {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 30em 20em 35em;
+      grid-template-rows: 3 20em 35em;
       grid-auto-rows: 350px;
     }
   }

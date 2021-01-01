@@ -1,58 +1,52 @@
-import React from "react"
-import { FaCcStripe, FaCreditCard, FaAlipay } from "react-icons/fa"
-export default [
+import React from 'react';
+import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+export const links = [
   {
-    page: "products",
-    label: "payments",
-    url: `/products/payments`,
-    icon: <FaCreditCard className="icon" />,
+    id: 1,
+    url: '/',
+    text: 'home',
   },
   {
-    page: "products",
-    label: "terminal",
-    url: `/products/payments`,
-    icon: <FaCreditCard className="icon" />,
+    id: 2,
+    url: '/about',
+    text: 'about',
   },
   {
-    page: "products",
-    label: "connect",
-    url: `/products/payments`,
-    icon: <FaCreditCard className="icon" />,
+    id: 3,
+    url: '/projects',
+    text: 'projects',
   },
   {
-    page: "products",
-    label: "billing",
-    url: `/products/payments`,
-    icon: <FaCreditCard className="icon" />,
+    id: 4,
+    url: '/contact',
+    text: 'contact',
   },
   {
-    page: "developers",
-    label: "documentation",
-    url: `/products/payments`,
-    icon: <FaAlipay className="icon" />,
+    id: 5,
+    url: '/profile',
+    text: 'profile',
+  },
+];
+
+export const social = [
+  {
+    id: 1,
+    url: 'https://www.twitter.com',
+    icon: <FaFacebook />,
   },
   {
-    page: "developers",
-    label: "libraries",
-    url: `/products/payments`,
-    icon: <FaAlipay className="icon" />,
+    id: 2,
+    url: 'https://www.twitter.com',
+    icon: <FaTwitter />,
   },
   {
-    page: "developers",
-    label: "plugins",
-    url: `/products/payments`,
-    icon: <FaAlipay className="icon" />,
+    id: 3,
+    url: 'https://www.twitter.com',
+    icon: <FaLinkedin />,
   },
   {
-    page: "company",
-    label: "jobs",
-    url: `/products/payments`,
-    icon: <FaCcStripe className="icon" />,
+    id: 4,
+    url: 'https://www.twitter.com',
+    icon: <FaBehance />,
   },
-  {
-    page: "company",
-    label: "customers",
-    url: `/products/payments`,
-    icon: <FaCcStripe className="icon" />,
-  },
-]
+];

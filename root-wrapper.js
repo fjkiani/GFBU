@@ -159,6 +159,7 @@ p {
 .section {
   padding: 5rem 0;
   position: relative;
+  background-color:antiquewhite;
 }
 
 .section-center {

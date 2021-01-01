@@ -29,10 +29,12 @@ const Projects = ({ projects: data, title, page, id }) => {
             <article key={id}>
               <div className="container">
                 <Image fluid={fluid} className="img" />
-                <div className="info">
-                  {/* <p>- {name} -</p>
-                  <h3>{type}</h3> */}
+                <div className="item-info">
+                  <header>                 
+                  <p>{name} -</p>
+                  <h4>{type}</h4>
                   {/* <Link to={`/products/${id}`}></Link> */}
+                  </header>
                 </div>
               </div>
             </article>
@@ -61,7 +63,15 @@ const Wrapper = styled.section`
       height: 20rem;
       border-radius: var(--radius);
       transition: var(--transition);
+      border: 2px solid darkgoldenrod;
     }
+    .item-info header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px dotted var(--clr-grey-5);
+      background-color: white;
+    }
+    
     article {
       box-shadow: var(--light-shadow);
       border-radius: var(--radius);
@@ -84,7 +94,7 @@ const Wrapper = styled.section`
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
-        opacity: 0;
+        opacity: 1;
         transition: var(--transition);
         color: var(--clr-white);
         text-align: center;
@@ -95,7 +105,7 @@ const Wrapper = styled.section`
         }
       }
       &:hover .info {
-        opacity: 1;
+        opacity: 0;
       }
     }
     @media (min-width: 768px) {

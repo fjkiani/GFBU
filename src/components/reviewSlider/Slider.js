@@ -46,7 +46,7 @@ const Slider = () => {
   }, [index, customers])
   return (
     <Wrapper className="section">
-      <Title title="Why Our customers love us" />
+      <Title title="Over 500 Happy Customers" />
       <div className="section-center">
         {customers.map((customer, customerIndex) => {
           const {

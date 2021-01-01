@@ -1,119 +1,59 @@
-import React, { useContext } from "react"
-import styled from "styled-components"
-import logo from "../images/logo.png"
-import { GoThreeBars } from "react-icons/go"
-import { Link } from "gatsby"
-import NavLink from "./NavLink"
-import { GatsbyContext } from "../context/context"
-const Navbar = () => {
-  const { isSidebarOpen, showSidebar, links } = useContext(GatsbyContext)
-  const tempLinks = [
-    ...new Set(
-      links.map(link => {
-        return link.page
-      })
-    ),
-  ]
+import React, { useState, useRef, useEffect } from 'react';
+import { FaBars } from 'react-icons/fa';
+import { links, social } from '../constants/links';
+import logo from '../images/logo.png';
+import css from "../css/header.css"
 
+
+const Navbar = () => {
+  const [showLinks, setShowLinks] = useState(false);
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
+  const toggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+  useEffect(() => {
+    const linksHeight = linksRef.current.getBoundingClientRect().height;
+    if (showLinks) {
+      linksContainerRef.current.style.height = `${linksHeight}px`;
+    } else {
+      linksContainerRef.current.style.height = '0px';
+    }
+  }, [showLinks]);
   return (
-    <Wrapper>
-      <div className="nav-center">
-        <div className="nav-header">
-          <Link to="/">
-            <img src={logo} alt="design"></img>
-          </Link>
-          {!isSidebarOpen && (
-            <button className="toggle-btn" onClick={showSidebar}>
-              <GoThreeBars />
-            </button>
-          )}
+    <nav>
+      <div className='nav-center'>
+        <div className='nav-header'>
+          <img src={logo} className='logo' alt='logo' />
+          <button className='nav-toggle' onClick={toggleLinks}>
+            <FaBars />
+          </button>
         </div>
-        <ul className="nav-links">
-          {tempLinks.map((page, index) => {
-            return <NavLink key={index} page={page}></NavLink>
+        <div className='links-container' ref={linksContainerRef}>
+          <ul className='links' ref={linksRef}>
+            {links.map((link) => {
+              const { id, url, text } = link;
+              return (
+                <li key={id}>
+                  <a href={url}>{text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <ul className='social-icons'>
+          {social.map((socialIcon) => {
+            const { id, url, icon } = socialIcon;
+            return (
+              <li key={id}>
+                <a href={url}>{icon}</a>
+              </li>
+            );
           })}
         </ul>
       </div>
-    </Wrapper>
-  )
-}
+    </nav>
+  );
+};
 
-const Wrapper = styled.nav`
-  position: relative;
-  background: transparent;
-  z-index: 1;
-  height: 11rem;
-  display: flex;
-  align-items: center;
-  .nav-center {
-    width: 90vw;
-    margin: 0 auto;
-    max-width: var(--max-width);
-  }
-  .nav-header {
-    color: var(--clr-white);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    img {
-      width: 50%;
-    }
-    .toggle-btn {
-      width: 3.5rem;
-      height: 2.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      border-radius: 2rem;
-      border: transparent;
-      color: var(--clr-white);
-      background: var(--clr-primary-5);
-      cursor: pointer;
-      transition: var(--transition);
-      &:hover {
-        background: var(--clr-primary-3);
-      }
-    }
-  }
-  .nav-links {
-    display: none;
-  }
-  @media (min-width: 800px) {
-    .nav-header {
-      .toggle-btn {
-        display: none;
-      }
-    }
-    .nav-center {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0 2rem;
-      grid-gap: 0 4rem;
-      align-items: center;
-    }
-    .nav-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 500px;
-    }
-    li {
-      padding: 1rem 0;
-      position: relative;
-    }
-    button {
-      color: orange;
-      background: transparent;
-      border: transparent;
-      font-size: 1rem;
-      letter-spacing: 2px;
-      font-weight: 500;
-      padding: 10px 20px;
-      width: 100%;
-      text-transform: capitalize;
-      position: relative;
-    }
-  }
-`
-
-export default Navbar
+export default Navbar;

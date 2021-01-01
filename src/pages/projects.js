@@ -10,8 +10,8 @@ const ProjectsPage = ({ data }) => {
   return (
     <Wrapper>
       <Layout>
-        <Projects title="our projects" projects={projects} page />
-        <Algolia />
+        <Projects title="Our menu" projects={projects} page />
+        {/* <Algolia /> */}
       </Layout>
     </Wrapper>
   )

@@ -62,8 +62,8 @@ const Hero = () => {
         <article>
     
           {/* <h3>{name}</h3> */}
-          <h1>let your home be inique and stylish</h1>
-          <Link to="/projects≈">Projects</Link>
+          <h1>homemade, authentic and fresh </h1>
+          <Link to="/projects≈">Order Online</Link>
         </article>
 ≈
         <button className="prev-btn" onClick={() => setIndex(index - 1)}>
@@ -100,6 +100,7 @@ const Wrapper = styled.section`
       line-height: 1.25;
       margin: 2rem 0 3rem 0;
       letter-spacing: 3px;
+      background-color:chocolate;
     }
     h3 {
       font-weight: 400;

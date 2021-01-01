@@ -1,19 +1,21 @@
 import React from "react"
 import styled from "styled-components"
 import Title from "./Title"
-import aboutUs from "../constants/aboutUs"
-const About = () => {
+import services from "../constants/ourServices"
+const Services = () => {
   return (
     <Wrapper className="section">
-      <Title title="about us" />
+      <Title title="Our Services" />
       <div className="section-center">
-        {aboutUs.map(({ id, icon, label, text }) => {
+        {services.map(({ id, icon, label, text }) => {
           return (
+            <div className="items">
             <article key={id}>
               <span>{icon}</span>
               <h4>{label}</h4>
-              <p>{text}</p>
+             
             </article>
+            </div>
           )
         })}
       </div>
@@ -31,7 +33,10 @@ const Wrapper = styled.section`
       font-size: 4rem;
       color: var(--clr-primary-5);
       margin-bottom: 1rem;
+    }
+    .items {
       width: 70%;
+      margin-left: 30px;
     }
     h4 {
       text-transform: uppercase;
@@ -59,4 +64,4 @@ const Wrapper = styled.section`
     }
   }
 `
-export default About
+export default Services
