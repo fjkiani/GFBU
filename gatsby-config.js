@@ -24,23 +24,18 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `500`, `700`],
-          },
-          {
-            family: `Open Sans`,
-          },
-          {
-            family: `Caveat`,
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     options: {
+    //       fonts: [
+    //         `limelight`,
+    //         `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+    //       ],
+    //       display: 'swap'
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-airtable`,
       options: {
